@@ -1,5 +1,5 @@
-#define CH1_PIN 21  // Roll
-#define CH2_PIN 20  // Throttle
+#define CH1_PIN 3   // Roll
+#define CH2_PIN 2   // Throttle
 #define CH3_PIN 19  // Pitch
 #define CH4_PIN 18  // Yaw
 
@@ -26,7 +26,7 @@ void loop() {
 }
 
 void roll() {
-  if(PIND & B00000001) {
+  if(PINE & B00100000) {
     t1 = micros();
   } else {
     roll_input = micros() - t1;
@@ -34,7 +34,7 @@ void roll() {
 }
 
 void throttle() {
-  if(PIND & B00000010) {
+  if(PINE & B00010000) {
     t2 = micros();
   } else {
     throttle_input = micros() - t2;
